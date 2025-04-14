@@ -2,9 +2,9 @@ import eel
 import os
 import subprocess
 import sys
-import json
 import shutil
 import time
+import argparse
 
 # Directory where all virtual environments will be stored
 ENV_ROOT = os.path.join(os.getcwd(), "environments")
@@ -198,8 +198,28 @@ def launch_env_terminal(env_name):
         return f"Error launching terminal: {str(e)}"
 
 def start_app():
+    """Start the Eel web application"""
     eel.init('web')
     eel.start('index.html', size=(1000, 700), mode='chrome')
 
+def parse_arguments():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description='Viper Environment Manager')
+    parser.add_argument('--manifest', action='store_true', help='Display the manifest file path for Auto PY to EXE')
+    parser.add_argument('--version-file', action='store_true', help='Display the version file path for Auto PY to EXE')
+    return parser.parse_args()
+
 if __name__ == "__main__":
+    args = parse_arguments()
+    
+    if args.manifest:
+        manifest_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'viper.manifest')
+        print(f"Manifest file path: {manifest_path}")
+        sys.exit(0)
+    
+    if args.version_file:
+        version_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'version_info.txt')
+        print(f"Version file path: {version_file_path}")
+        sys.exit(0)
+    
     start_app()

@@ -71,6 +71,30 @@ Viper Environment Manager is a modern desktop application for creating and manag
    python environment_manager.py
    ```
 
+### Building Executable with Auto PY to EXE
+
+Viper includes files that make it easy to package the application with Auto PY to EXE:
+
+1. Install Auto PY to EXE:
+   ```bash
+   pip install auto-py-to-exe
+   ```
+
+2. Run Auto PY to EXE:
+   ```bash
+   auto-py-to-exe
+   ```
+
+3. In the Auto PY to EXE interface:
+   - Select `environment_manager.py` as the script location
+   - Choose "One Directory" or "One File" packaging mode
+   - Select "Window Based" for console window
+   - Add the `web` folder to "Additional Files"
+   - For the manifest file, run `python environment_manager.py --manifest` and copy the path
+   - For the version file, run `python environment_manager.py --version-file` and copy the path
+
+4. Click "Convert .py to .exe" to build your executable
+
 ## 🔧 Usage
 
 ### Creating a New Environment
@@ -101,7 +125,7 @@ Viper Environment Manager is a modern desktop application for creating and manag
 
 ### Project Structure
 ```
-Viper/
+Mini Conda/
 ├── web/                    # Frontend assets
 │   ├── index.html          # Main HTML interface
 │   ├── style.css           # CSS styles
