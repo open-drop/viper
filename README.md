@@ -101,7 +101,7 @@ Viper Environment Manager is a modern desktop application for creating and manag
 
 ### Project Structure
 ```
-Mini Conda/
+Viper/
 ├── web/                    # Frontend assets
 │   ├── index.html          # Main HTML interface
 │   ├── style.css           # CSS styles
