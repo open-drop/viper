@@ -42,7 +42,7 @@ def create_env(env_name):
         return f"Error: Environment '{env_name}' already exists."
     try:
         # Create environment
-        subprocess.check_call([sys.executable, "-m", "venv", env_path])
+        subprocess.check_call(["python", "-m", "venv", env_path])
         # Add a small delay to ensure filesystem consistency
         time.sleep(0.5)
         return f"Created environment: {env_name}"
@@ -200,7 +200,7 @@ def launch_env_terminal(env_name):
 def start_app():
     """Start the Eel web application"""
     eel.init('web')
-    eel.start('index.html', size=(1000, 700), mode='chrome')
+    eel.start('index.html', size=(1200, 800), mode='chrome')
 
 def parse_arguments():
     """Parse command line arguments"""
